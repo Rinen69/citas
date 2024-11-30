@@ -2,6 +2,11 @@
 <html lang="{{ Config::get('app.locale') }}">
 <head>
     <meta charset="utf-8"/>
+<<<<<<< HEAD
+=======
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+>>>>>>> 645a05b23e6795c9cfd11132cd0eda03774755d4
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -21,5 +26,9 @@
 </div>
 
 @yield('tablar_js')
+<<<<<<< HEAD
 
+=======
+@yield('scripts')
+>>>>>>> 645a05b23e6795c9cfd11132cd0eda03774755d4
 </html>
