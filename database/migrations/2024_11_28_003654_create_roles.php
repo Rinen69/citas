@@ -28,6 +28,9 @@ return new class extends Migration
         if (!Role::where('name', 'enfermero')->exists()) {
             $role3 = Role::create(['name' => 'enfermero']);
         }
+        if (!Role::where('name', 'paciente')->exists()) {
+            $role3 = Role::create(['name' => 'paciente']);
+        }
 
         $user = User::find(1);
         if ($user && !$user->hasRole('admin')) {

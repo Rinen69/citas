@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('asignaservicios', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('servicio_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('medico_id');
             $table->foreign('servicio_id')->references('id')->on('servicios')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('medico_id')->references('id')->on('medicos')->onDelete('cascade');
             $table->timestamps();
         });
     }
