@@ -10,7 +10,6 @@ use App\Models\User;
 use App\Models\Servicio;
 use App\Models\Disponible;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Http\Request;
 
 /**
@@ -24,12 +23,10 @@ class ConsultaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
         $consultas = Consulta::paginate(10);
 
-        
         return view('consulta.index', compact('consultas'))
             ->with('i', (request()->input('page', 1) - 1) * $consultas->perPage());
     }
@@ -39,79 +36,20 @@ class ConsultaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    /*
     public function create()
     {
         if (!Auth::check()) {
             return redirect()->route('login')->with('error', 'Debes iniciar sesión para acceder.');
         }
+    
         $consulta = new Consulta();
-        $pacientes=paciente::all();
-        //$paciente = Auth::paciente();
-        $servicios=Servicio::all();
-        $disponibles=Disponible::all();
-        return view('consulta.create', compact('consulta','pacientes','servicios','disponibles'));
-    }*/
-    /*
-    public function create()
-    {
-        if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'Debes iniciar sesión para acceder.');
-        }
-
-        $consulta = new Consulta();
-
-        // Obtén el paciente asociado al usuario autenticado
+        //$pacientes = Paciente::with('user')->get(); // Cargar los usuarios relacionados
         $paciente = Paciente::where('user_id', Auth::id())->first();
-
-        if (!$paciente) {
-            return redirect()->route('home')->with('error', 'Solo los pacientes registrados pueden crear consultas.');
-        }
-
         $servicios = Servicio::all();
         $disponibles = Disponible::all();
-
+    
         return view('consulta.create', compact('consulta', 'paciente', 'servicios', 'disponibles'));
     }
-*/
-public function create()
-{
-    if (!Auth::check()) {
-        return redirect()->route('login')->with('error', 'Debes iniciar sesión para acceder.');
-    }
-
-    $consulta = new Consulta();
-    //$pacientes = Paciente::with('user')->get(); // Cargar los usuarios relacionados
-    $paciente = Paciente::where('user_id', Auth::id())->first();
-    $servicios = Servicio::all();
-    $disponibles = Disponible::all();
-
-    return view('consulta.create', compact('consulta', 'paciente', 'servicios', 'disponibles'));
-}
-
-public function getDisponibles(Request $request)
-{
-    $request->validate(['servicio_id' => 'required|exists:servicios,id']);
-
-    // Obtener médicos asignados al servicio seleccionado
-    $medicos = Asignaservicio::where('servicio_id', $request->servicio_id)->pluck('medico_id');
-
-    // Validar que existen médicos
-    if ($medicos->isEmpty()) {
-        return response()->json([], 200); // No hay médicos disponibles
-    }
-
-    // Obtener horarios disponibles de los médicos asignados
-    $disponibles = Disponible::whereIn('medico_id', $medicos)
-        ->where('estado', 'disponible')
-        ->get(['id', 'fecha', 'hora']);
-
-    return response()->json($disponibles);
-}
-
-
-
-
 
     /**
      * Store a newly created resource in storage.

@@ -19,9 +19,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Medico extends Model
 {
-    
     static $rules = [
-		'user_id' => 'required',
+        'user_id' => 'required',
     ];
 
     protected $perPage = 20;
@@ -33,22 +32,19 @@ class Medico extends Model
      */
     protected $fillable = ['user_id'];
 
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function disponibles()
     {
-        return $this->hasMany('App\Models\Disponible', 'medico_id', 'id');
+        return $this->hasMany(Disponible::class, 'medico_id', 'id');
     }
-    
+
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {
-        return $this->hasOne('App\Models\User', 'id', 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
-    
-
 }

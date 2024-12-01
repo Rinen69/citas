@@ -1,6 +1,6 @@
 @extends('tablar::page')
 
-@section('title', 'View Consulta')
+@section('title', 'View Triaje')
 
 @section('content')
     <!-- Page header -->
@@ -13,13 +13,13 @@
                         View
                     </div>
                     <h2 class="page-title">
-                        {{ __('Consulta ') }}
+                        {{ __('Triaje ') }}
                     </h2>
                 </div>
                 <!-- Page title actions -->
                 <div class="col-12 col-md-auto ms-auto d-print-none">
                     <div class="btn-list">
-                        <a href="{{ route('consultas.index') }}" class="btn btn-primary d-none d-sm-inline-block">
+                        <a href="{{ route('triajes.index') }}" class="btn btn-primary d-none d-sm-inline-block">
                             <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                  viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -28,7 +28,7 @@
                                 <line x1="12" y1="5" x2="12" y2="19"/>
                                 <line x1="5" y1="12" x2="19" y2="12"/>
                             </svg>
-                            Consulta List
+                            Triaje List
                         </a>
                     </div>
                 </div>
@@ -45,21 +45,45 @@
                     @endif
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Consulta Details</h3>
+                            <h3 class="card-title">Triaje Details</h3>
                         </div>
                         <div class="card-body">
                             
 <div class="form-group">
-<strong>Paciente Id:</strong>
-{{ $consulta->paciente->user->id}}
+<strong>Consulta Id:</strong>
+{{ $triaje->consulta_id }}
 </div>
 <div class="form-group">
-<strong>Servicio Id:</strong>
-{{ $consulta->servicio->descripcion }}
+<strong>Peso:</strong>
+{{ $triaje->peso }}
 </div>
 <div class="form-group">
-<strong>Disponible Id:</strong>
-{{ $consulta->disponible->fecha }}
+<strong>Talla:</strong>
+{{ $triaje->talla }}
+</div>
+<div class="form-group">
+<strong>Tensionarterial:</strong>
+{{ $triaje->tensionarterial }}
+</div>
+<div class="form-group">
+<strong>Saturacionoxigeno:</strong>
+{{ $triaje->saturacionoxigeno }}
+</div>
+<div class="form-group">
+<strong>Temperatura:</strong>
+{{ $triaje->temperatura }}
+</div>
+<div class="form-group">
+<strong>Frecuenciarespiratoria:</strong>
+{{ $triaje->frecuenciarespiratoria }}
+</div>
+<div class="form-group">
+<strong>Frecuenciacardiaca:</strong>
+{{ $triaje->frecuenciacardiaca }}
+</div>
+<div class="form-group">
+<strong>Observacion:</strong>
+{{ $triaje->observacion }}
 </div>
 
                         </div>

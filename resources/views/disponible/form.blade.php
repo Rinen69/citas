@@ -9,15 +9,6 @@
     </div>
 </div>
 <div class="form-group mb-3">
-    <label for="medico_id" class="form-label">Seleccionar medico</label>
-    <select name="medico_id" id="medico_id" class="form-control" required>
-        <option value="" selected disabled>-- Selecciona una medico --</option>
-        @foreach ($medicos as $medico)
-            <option value="{{ $medico->id }}">{{ $medico->user->name}}</option>
-        @endforeach
-    </select>    
-</div>    
-<div class="form-group mb-3">
     <label class="form-label">   {{ Form::label('fecha') }}</label>
     <div>
         {{ Form::text('fecha', $disponible->fecha, ['class' => 'form-control' .

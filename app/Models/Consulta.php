@@ -8,15 +8,15 @@ use Illuminate\Database\Eloquent\Model;
  * Class Consulta
  *
  * @property $id
- * @property $user_id
+ * @property $paciente_id
  * @property $servicio_id
  * @property $disponible_id
  * @property $created_at
  * @property $updated_at
  *
  * @property Disponible $disponible
+ * @property Paciente $paciente
  * @property Servicio $servicio
- * @property User $user
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
@@ -50,17 +50,17 @@ class Consulta extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function servicio()
+    public function paciente()
     {
-        return $this->hasOne('App\Models\Servicio', 'id', 'servicio_id');
+        return $this->hasOne('App\Models\Paciente', 'id', 'paciente_id');
     }
     
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function paciente()
+    public function servicio()
     {
-        return $this->hasOne('App\Models\Paciente', 'id', 'paciente_id');
+        return $this->hasOne('App\Models\Servicio', 'id', 'servicio_id');
     }
     
 

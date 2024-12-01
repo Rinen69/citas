@@ -76,7 +76,7 @@ class DisponibleController extends Controller
     {
         $disponible = Disponible::find($id);
         $medicos=Medico::all();
-        return view('disponible.create', compact('disponible','medicos'));
+        return view('disponible.edit', compact('disponible','medicos'));
     }
 
     /**

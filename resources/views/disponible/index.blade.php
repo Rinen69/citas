@@ -101,7 +101,7 @@
                                                    aria-label="Select disponible"></td>
                                         <td>{{ ++$i }}</td>
                                         
-											<td>{{ $disponible->medico->user->name }} {{ $disponible->medico->user->ap }}</td>
+											<td>{{ $disponible->medico_id }}</td>
 											<td>{{ $disponible->fecha }}</td>
 											<td>{{ $disponible->hora }}</td>
 											<td>{{ $disponible->estado }}</td>

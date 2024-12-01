@@ -17,13 +17,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property User $user
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
- */
-class Asignaservicio extends Model
+ */class Asignaservicio extends Model
 {
-    
     static $rules = [
-		'servicio_id' => 'required',
-		'medico_id' => 'required',
+        'servicio_id' => 'required',
+        'medico_id' => 'required',
     ];
 
     protected $perPage = 20;
@@ -33,28 +31,21 @@ class Asignaservicio extends Model
      *
      * @var array
      */
-    protected $fillable = ['servicio_id','medico_id'];
-
+    protected $fillable = ['servicio_id', 'medico_id'];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function servicio()
     {
-        return $this->hasOne('App\Models\Servicio', 'id', 'servicio_id');
+        return $this->belongsTo(Servicio::class, 'servicio_id');
     }
-    
+
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function medico()
     {
-        return $this->hasOne('App\Models\Medico', 'id', 'medico_id');
+        return $this->belongsTo(Medico::class, 'medico_id');
     }
-    public function medicos()
-    {
-        return $this->belongsTo(Medico::class);
-    }
-    
-
 }

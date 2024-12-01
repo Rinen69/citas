@@ -13,5 +13,6 @@
             @include('tablar::partials.footer.bottom')
         </div>
     </div>
+
     </body>
 @stop

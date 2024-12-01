@@ -51,7 +51,7 @@
                             
 <div class="form-group">
 <strong>Medico Id:</strong>
-{{ $disponible->medico_id }}
+{{ $disponible->hora }}
 </div>
 <div class="form-group">
 <strong>Fecha:</strong>

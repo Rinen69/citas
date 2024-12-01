@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Medico;
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\Request;
 
 /**
@@ -106,4 +108,24 @@ class MedicoController extends Controller
         return redirect()->route('medicos.index')
             ->with('success', 'Medico deleted successfully');
     }
+    public function getDisponiblesPorServicio($servicio_id)
+{
+    $disponibles = DB::table('servicios')
+    ->join('asignaservicios', 'servicios.id', '=', 'asignaservicios.servicio_id')
+    ->join('medicos', 'asignaservicios.medico_id', '=', 'medicos.id')
+    ->join('disponibles', 'medicos.id', '=', 'disponibles.medico_id')
+    ->join('users', 'medicos.user_id', '=', 'users.id') // Añadir unión con tabla de usuarios para obtener el nombre del médico
+    ->where('servicios.id', $servicio_id)
+    ->where('disponibles.estado', 'disponible')
+    ->select('disponibles.id as disponible_id', 'disponibles.fecha', 'disponibles.hora', 'users.name as medico_nombre') // Añadir el nombre del médico a la selección
+    ->distinct()
+    ->get();
+    
+    if ($disponibles->isEmpty()) {
+        return response()->json(['message' => 'No hay disponibilidades para este servicio.'], 404);
+    }
+
+    return response()->json($disponibles);
+}
+
 }
