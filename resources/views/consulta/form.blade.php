@@ -35,11 +35,11 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-$(document).ready(function() {
+    $(document).ready(function() {
     // Cuando el usuario selecciona un servicio
     $('#servicioSelect').on('change', function() {
         const servicioId = $(this).val();
-        
+
         // Verificar si se ha seleccionado un servicio válido
         if (!servicioId) {
             return;
@@ -60,8 +60,8 @@ $(document).ready(function() {
                 // Añadimos las nuevas disponibilidades y el nombre del médico
                 if (response.length > 0) {
                     response.forEach(function(disponible) {
-                        console.log('Añadiendo disponibilidad:', disponible); // Registrar cada disponibilidad
-                        $('#disponibleSelect').append(new Option( disponible.fecha + ' ' + disponible.hora +' '+disponible.medico_nombre, disponible.disponible_id));
+                        console.log('Añadiendo disponibilidad:', disponible);
+                        $('#disponibleSelect').append(new Option(disponible.fecha + ' ' + disponible.hora + ' ' + disponible.medico_nombre, disponible.disponible_id));
                     });
                 } else {
                     $('#disponibleSelect').append('<option value="" disabled>No hay horarios disponibles</option>');
@@ -70,6 +70,8 @@ $(document).ready(function() {
             error: function(xhr) {
                 console.log('Error:', xhr); // Log del error en caso de fallo
                 if (xhr.status === 404) {
+                    // Si no hay disponibilidad, limpiamos el select y mostramos un mensaje
+                    $('#disponibleSelect').empty().append('<option value="" disabled>No hay horarios disponibles para este servicio</option>');
                     alert('No hay disponibilidades para este servicio.');
                 } else {
                     alert('Error al obtener las disponibilidades');
@@ -78,4 +80,5 @@ $(document).ready(function() {
         });
     });
 });
+
 </script>

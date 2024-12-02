@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Triaje;
-use App\Models\Concultas;
-use Illuminate\Http\Request;
+use App\Models\Consulta;
 
+use Illuminate\Http\Request;
 /**
  * Class TriajeController
  * @package App\Http\Controllers
@@ -33,7 +33,8 @@ class TriajeController extends Controller
     public function create()
     {
         $triaje = new Triaje();
-        return view('triaje.create', compact('triaje'));
+        $consultas=Consulta::all();
+        return view('triaje.create', compact('triaje','consultas'));
     }
 
     /**

@@ -150,11 +150,49 @@ return [
             'url' => 'home'
         ],
         [
-            'text' => 'products',
+            'text' => 'asignaservicios',
             'icon' => 'ti ti-pencil',
-            'url' => 'products'
+            'url' => 'asignaservicios',
+            'can'=>'asignaservicios'
         ],
-
+        [
+            'text' => 'consultas',
+            'icon' => 'ti ti-pencil',
+            'url' => 'consultas',
+            'can'=>'consultas'
+            
+        ],
+        [
+            'text' => 'disponibles',
+            'icon' => 'ti ti-pencil',
+            'url' => 'disponibles',
+            'can'=>'disponibles'
+            
+        ],
+        [
+            'text' => 'medicos',
+            'icon' => 'ti ti-pencil',
+            'url' => 'medicos',
+            'can'=>'medicos'
+        ],
+        [
+            'text' => 'pacientes',
+            'icon' => 'ti ti-pencil',
+            'url' => 'pacientes',
+            'can'=>'pacientes'
+        ],
+        [
+            'text' => 'servicios',
+            'icon' => 'ti ti-pencil',
+            'url' => 'servicios',
+            'can'=>'servicios'
+        ],
+        [
+            'text' => 'triajes',
+            'icon' => 'ti ti-pencil',
+            'url' => 'triajes',
+            'can'=>'triajes'
+        ],
     ],
 
     /*
