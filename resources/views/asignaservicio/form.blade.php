@@ -8,7 +8,7 @@
     </select>    
 </div>     
 <div class="form-group mb-3">
-    <label for="medico_id" class="form-label">Seleccionar usuario</label>
+    <label for="medico_id" class="form-label">Seleccionar un medico</label>
     <select name="medico_id" id="medico_id" class="form-control" required>
         <option value="" selected disabled>-- Selecciona una medico --</option>
         @foreach ($medicos as $medico)

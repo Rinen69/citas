@@ -14,7 +14,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-                // Verifica si el rol ya existe antes de crearlo
         if (!Role::where('name', 'admin')->exists()) {
             $role1 = Role::create(['name' => 'admin']);
         } else {
@@ -28,12 +27,9 @@ return new class extends Migration
         if (!Role::where('name', 'enfermero')->exists()) {
             $role3 = Role::create(['name' => 'enfermero']);
         }
-<<<<<<< HEAD
-=======
         if (!Role::where('name', 'paciente')->exists()) {
-            $role3 = Role::create(['name' => 'paciente']);
+            $role4 = Role::create(['name' => 'paciente']);
         }
->>>>>>> 645a05b23e6795c9cfd11132cd0eda03774755d4
 
         $user = User::find(1);
         if ($user && !$user->hasRole('admin')) {

@@ -20,9 +20,9 @@
                 </div>
                 <!-- Page title actions -->
                 <div class="col-12 col-md-auto ms-auto d-print-none">
+                    <!--
                     <div class="btn-list">
                         <a href="{{ route('pacientes.create') }}" class="btn btn-primary d-none d-sm-inline-block">
-                            <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                  viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                  stroke-linecap="round" stroke-linejoin="round">
@@ -32,7 +32,7 @@
                             </svg>
                             Create Paciente
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -85,7 +85,7 @@
                                         </svg>
                                     </th>
                                     
-										<th>User Id</th>
+										<th>paciente</th>
 										<th>Condicionvida Id</th>
 										<th>Habitohigiene Id</th>
 										<th>Habitoalimento Id</th>
@@ -101,10 +101,12 @@
                                                    aria-label="Select paciente"></td>
                                         <td>{{ ++$i }}</td>
                                         
-											<td>{{ $paciente->user_id }}</td>
-											<td>{{ $paciente->condicionvida_id }}</td>
-											<td>{{ $paciente->habitohigiene_id }}</td>
-											<td>{{ $paciente->habitoalimento_id }}</td>
+											<td>{{ $paciente->user->name}} {{ $paciente->user->ap}} {{ $paciente->user->am}}</td>
+											
+                                            <td>{{ $paciente->condicionvida ? $paciente->condicionvida->descripcion : 'N/A' }}</td>
+                                            <td>{{ $paciente->habitohigiene ? $paciente->habitohigiene->descripcion : 'N/A' }}</td>
+                                            <td>{{ $paciente->habitoalimento ? $paciente->habitoalimento->descripcion : 'N/A' }}</td>
+
 
                                         <td>
                                             <div class="btn-list flex-nowrap">
@@ -118,10 +120,11 @@
                                                            href="{{ route('pacientes.show',$paciente->id) }}">
                                                             View
                                                         </a>
+                                                        <!--
                                                         <a class="dropdown-item"
                                                            href="{{ route('pacientes.edit',$paciente->id) }}">
                                                             Edit
-                                                        </a>
+                                                        </a>-->
                                                         <form
                                                             action="{{ route('pacientes.destroy',$paciente->id) }}"
                                                             method="POST">

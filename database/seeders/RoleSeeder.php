@@ -27,18 +27,19 @@ class RoleSeeder extends Seeder
             'servicios',
             'triajes',
             'products',
+            'asignroles',
 
         ];
 
-        // Crear los permisos en la base de datos si no existen
+        //despues de hacer cambios aqui, usar este comando ->   php artisan db:seed --class=RoleSeeder
         foreach ($permissions as $permission) {
             Permission::firstOrCreate(['name' => $permission]);
         }
 
         // Asignar permisos a los roles
-        $admin->syncPermissions(['products','asignaservicios','disponibles','medicos','servicios']);
+        $admin->syncPermissions(['products','asignaservicios','disponibles','medicos','servicios','asignroles']);
         $medico->givePermissionTo(['products','triajes','pacientes']);
-        $paciente->givePermissionTo(['products','consultas']);
+        $paciente->givePermissionTo(['products','consultas','servicios']); //paciente solo puede ver las servicios
         $enfermero->givePermissionTo(['products','triajes']);
 
         // Asignar el rol 'admin' al usuario con ID 1

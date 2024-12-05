@@ -49,17 +49,7 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Rol</label>
-                    <select name="rol" class="form-control @error('rol') is-invalid @enderror">
-                        <option value="" selected disabled>Seleccione un rol</option>
-                        <option value="medico">Médico</option>
-                        <option value="paciente">Paciente</option>
-                    </select>
-                    @error('rol')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
+
                 <div class="mb-3">
                     <label class="form-label">Password</label>
                     <div class="input-group input-group-flat">

@@ -33,3 +33,8 @@ Route::resource('/triajes', App\Http\Controllers\TriajeController::class);
 Route::get('/get-disponibles', [ConsultaController::class, 'getDisponibles']);
 Route::get('/get-disponibles', [ConsultaController::class, 'getDisponibles'])->name('get-disponibles');
 Route::post('/consultas/getDisponibles', [ConsultaController::class, 'getDisponibles'])->name('consultas.getDisponibles');
+Route::resource('/roles', App\Http\Controllers\RoleController::class);
+Route::resource('/asignroles', App\Http\Controllers\AsignroleController::class);
+Route::resource('/condicionvida', App\Http\Controllers\CondicionvidaController::class);
+Route::resource('/habitohigiene', App\Http\Controllers\HabitohigieneController::class);
+Route::resource('/habitoalimento', App\Http\Controllers\HabitoalimentoController::class);

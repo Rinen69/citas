@@ -55,7 +55,7 @@
                 console.log('Respuesta recibida:', response); // Ver la respuesta en la consola
 
                 // Limpiamos el select de disponibilidades antes de añadir los nuevos datos
-                $('#disponibleSelect').empty().append('<option value="" selected disabled>-- Selecciona una disponibilidad --</option>');
+                $('#disponibleSelect').empty().append('<option value="" selected disabled>-- Selecciona una disponibilidad--</option>');
 
                 // Añadimos las nuevas disponibilidades y el nombre del médico
                 if (response.length > 0) {

@@ -2,13 +2,15 @@
 
 @section('content')
     <!-- Page header -->
+     
     <div class="page-header d-print-none">
         <div class="container-xl">
             <div class="row g-2 align-items-center">
                 <div class="col">
                     <!-- Page pre-title -->
                     <div class="page-pretitle">
-                        Overview
+                    {{ Auth::user()->name }} {{ Auth::user()->ap }} {{ Auth::user()->am }}
+                        
                     </div>
                     @role('admin')
                     <h2 class="page-title">Dasboard para Admin</h2>

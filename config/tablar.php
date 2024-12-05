@@ -150,7 +150,7 @@ return [
             'url' => 'home'
         ],
         [
-            'text' => 'asignaservicios',
+            'text' => 'asignar servicios',
             'icon' => 'ti ti-pencil',
             'url' => 'asignaservicios',
             'can'=>'asignaservicios'
@@ -192,6 +192,12 @@ return [
             'icon' => 'ti ti-pencil',
             'url' => 'triajes',
             'can'=>'triajes'
+        ],
+        [
+            'text' => 'usuarios',
+            'icon' => 'ti ti-pencil',
+            'url' => 'asignroles',
+            'can'=>'asignroles'
         ],
     ],
 
